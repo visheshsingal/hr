@@ -4,7 +4,7 @@ import axios from 'axios';
 const getApiUrl = () => {
   // In development, use localhost
   if (process.env.NODE_ENV === 'development') {
-    return process.env.REACT_APP_API_URL || 'http://localhost:5000';
+    return process.env.REACT_APP_API_URL || 'https://hr-backend-pamu.onrender.com';
   }
   
   // In production, use the environment variable

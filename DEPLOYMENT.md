@@ -71,7 +71,7 @@ See instructions below.
 2. **Create environment file:**
    Create `.env.production` file:
    ```
-   REACT_APP_API_URL=https://your-backend-url.vercel.app
+   REACT_APP_API_URL=https://hr-backend-pamu.onrender.com
    ```
 
 3. **Deploy frontend:**
@@ -86,7 +86,7 @@ After deploying the backend, update the frontend's environment variable:
 1. **In Vercel dashboard**, go to your frontend project
 2. **Add environment variable:**
    - Name: `REACT_APP_API_URL`
-   - Value: `https://your-backend-url.vercel.app`
+   - Value: `https://hr-backend-pamu.onrender.com`
 
 ## Step 5: Test Your Deployment
 

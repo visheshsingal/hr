@@ -5,7 +5,7 @@
 ### For Development
 Create a `.env.development` file in the frontend directory:
 ```
-REACT_APP_API_URL=http://localhost:5000
+REACT_APP_API_URL=https://hr-backend-pamu.onrender.com
 REACT_APP_ENV=development
 ```
 
@@ -17,7 +17,7 @@ Set these environment variables in your Vercel dashboard:
 3. Add the following variables:
 
 ```
-REACT_APP_API_URL=https://your-backend-url.onrender.com
+REACT_APP_API_URL=https://hr-backend-pamu.onrender.com
 REACT_APP_ENV=production
 ```
 

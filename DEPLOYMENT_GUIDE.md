@@ -78,7 +78,7 @@ This guide will help you deploy your HR Management System with the backend on Re
 
 3. **Set Environment Variables**
    ```
-   REACT_APP_API_URL=https://your-backend-url.onrender.com
+   REACT_APP_API_URL=https://hr-backend-pamu.onrender.com
    REACT_APP_ENV=production
    ```
    **Replace `your-backend-url.onrender.com` with your actual backend URL**
@@ -111,7 +111,7 @@ PORT=5000
 
 ### Frontend (Vercel Environment Variables)
 ```env
-REACT_APP_API_URL=https://your-backend-url.onrender.com
+REACT_APP_API_URL=https://hr-backend-pamu.onrender.com
 REACT_APP_ENV=production
 ```
 
