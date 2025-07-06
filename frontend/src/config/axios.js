@@ -1,9 +1,23 @@
 import axios from 'axios';
 
+// Get the API URL from environment variables
+const getApiUrl = () => {
+  // In development, use localhost
+  if (process.env.NODE_ENV === 'development') {
+    return process.env.REACT_APP_API_URL || 'http://localhost:5000';
+  }
+  
+  // In production, use the environment variable
+  return process.env.REACT_APP_API_URL;
+};
+
 // Create axios instance with base URL
 const api = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || 'http://localhost:5000',
+  baseURL: getApiUrl(),
   timeout: 10000,
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
 
 // Request interceptor to add auth token

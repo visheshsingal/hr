@@ -23,4 +23,4 @@ services:
     staticPublishPath: ./frontend/build
     envVars:
       - key: REACT_APP_API_URL
-        value: https://hr-app-backend.onrender.com 
+        value: https://your-actual-backend-url.onrender.com 

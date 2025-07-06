@@ -15,12 +15,42 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(helmet());
 app.use(morgan('combined'));
-app.use(cors({
-  origin: process.env.NODE_ENV === 'production' 
-    ? ['https://*.vercel.app', 'https://*.vercel.com', 'https://*.railway.app']
-    : 'http://localhost:3000',
-  credentials: true
-}));
+// CORS configuration
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    
+    const allowedOrigins = [
+      'http://localhost:3000', // Development
+      'https://*.vercel.app',  // Vercel
+      'https://*.vercel.com',  // Vercel
+      'https://*.railway.app', // Railway
+      'https://*.netlify.app', // Netlify
+      'https://*.netlify.com'  // Netlify
+    ];
+    
+    // Check if origin matches any allowed pattern
+    const isAllowed = allowedOrigins.some(allowedOrigin => {
+      if (allowedOrigin.includes('*')) {
+        const pattern = allowedOrigin.replace('*', '.*');
+        return new RegExp(pattern).test(origin);
+      }
+      return allowedOrigin === origin;
+    });
+    
+    if (isAllowed) {
+      callback(null, true);
+    } else {
+      console.log('CORS blocked origin:', origin);
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+  optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
